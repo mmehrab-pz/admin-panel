@@ -2,33 +2,44 @@ import Sidebar from "@/components/Sidebar";
 import { ThemeProvider, CssBaseline, Box } from "@mui/material";
 import theme from "@/theme/theme";
 import { roboto } from "@/theme/font";
-import Header from "@/components/Header";
+import Header from "@/components/header/Header";
 
 export default function RootLayout({ children }) {
   return (
-<html lang="en">
-  <body className={roboto.className}>
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Box sx={{ display: "flex", minHeight: "100vh" }}>
-        {/* Sidebar */}
-        <Sidebar />
-        {/* Content area */}
-        <Box sx={{ flex: 1 }}>
-          <Header />
-          <Box
-            component="main"
-            sx={{
-              mt: "85px",
-            }}
-          >
-            {children}
+    <html lang="en">
+      <body className={roboto.className}>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <Box sx={{ display: "flex", minHeight: "100vh" }}>
+            {/* Sidebar */}
+            <Sidebar />
+            {/* Content area */}
+            <Box sx={{ flex: 1 }}>
+              <Header />
+              <Box
+                component="main"
+                sx={{
+                  mt: "85px",
+                  bgcolor: "#111936",
+                  height: "calc(100% - 85px)",
+                  pr: "24px",
+                }}
+              >
+                <Box
+                  sx={{
+                    height: "100%",
+                    bgcolor: "#1A223F",
+                    borderRadius: "8px 8px 0 0",
+                  }}
+                >
+                  {children}
+                </Box>
+              </Box>
+            </Box>
           </Box>
-        </Box>
-      </Box>
-    </ThemeProvider>
-  </body>
-</html>
+        </ThemeProvider>
+      </body>
+    </html>
   );
 }
 // import EmotionRegistry from "@/lib/EmotionRegistry";
