@@ -1,13 +1,37 @@
-import { AppBar, Box, List, ListItem, ListItemIcon } from "@mui/material";
+"use client";
+import {
+  AppBar,
+  Box,
+  InputAdornment,
+  List,
+  ListItem,
+  ListItemIcon,
+  TextField,
+} from "@mui/material";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import SettingsIcon from "@mui/icons-material/Settings";
 import FullscreenIcon from "@mui/icons-material/Fullscreen";
+import FullscreenExitIcon from '@mui/icons-material/FullscreenExit'
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import TranslateIcon from "@mui/icons-material/Translate";
 import StreamIcon from "@mui/icons-material/Stream";
+import SearchIcon from "@mui/icons-material/Search";
 
 export default function Header() {
+  const [query, setQuery] = useState("");
+  const [screen , setScreen] = useState(false)
+
+  const fullScreen = ()=>{
+    if(!document.fullscreenElement){
+      document.documentElement.requestFullscreen()
+      setScreen(true)
+    }else{
+      document.exitFullscreen()
+      setScreen(false)
+    }
+  }
+
   return (
     <AppBar
       sx={{
@@ -22,12 +46,48 @@ export default function Header() {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          paddingInline: "24px",
+          paddingRight: "24px",
         }}
       >
         <Box
-          sx={{ height: "100%", border: "1px solid white", width: "300px" }}
-        ></Box>
+          sx={{
+            height: "100%",
+            maxWidth: "450px",
+            flex: 1,
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
+          <TextField
+            variant="outlined"
+            placeholder="search"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <SearchIcon sx={{ color: "white" }} />
+                </InputAdornment>
+              ),
+              sx: {
+                color: "#bdc8f0",
+                "& .MuiOutlinedInput-notchedOutline": {
+                  borderColor: "#bdc8f047",
+                },
+                "&:hover .MuiOutlinedInput-notchedOutline": {
+                  borderColor: "#ffffff",
+                },
+                "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                  borderColor: "#7086ff",
+                },
+                bgcolor: "#1a223f",
+                borderRadius: "8px",
+                height: 50,
+              },
+            }}
+            fullWidth
+          />
+        </Box>
         <List
           sx={{
             height: "100%",
@@ -123,10 +183,10 @@ export default function Header() {
               },
             }}
           >
-            <ListItemIcon
+            <ListItemIcon onClick={fullScreen}
               sx={{ color: "#1e88e5", minWidth: 0, transition: ".3s" }}
             >
-              <FullscreenIcon />
+              {!screen ? <FullscreenIcon /> : <FullscreenExitIcon />}
             </ListItemIcon>
           </ListItem>
           <ListItem
@@ -140,7 +200,7 @@ export default function Header() {
               justifyContent: "center",
               alignItems: "center",
               transition: ".3s",
-              cursor: 'pointer',
+              cursor: "pointer",
               "&:hover": {
                 bgcolor: "#E3F2FD",
               },
