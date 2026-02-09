@@ -4,6 +4,11 @@ import theme from "@/theme/theme";
 import { roboto } from "@/theme/font";
 import Header from "@/components/header/Header";
 
+export const metadata = {
+  title: 'Berry | React Material Admin',
+  description: 'این صفحه داشبورد برنامه است',
+}
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
