@@ -1,9 +1,24 @@
+"use client";
 import React from "react";
 import PaymentsOutlinedIcon from "@mui/icons-material/PaymentsOutlined";
 import MovingOutlinedIcon from "@mui/icons-material/MovingOutlined";
-import { Box, Typography } from "@mui/material";
+import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
+import GetAppIcon from "@mui/icons-material/GetApp";
+import FileUploadIcon from "@mui/icons-material/FileUpload";
+import FileCopyOutlinedIcon from "@mui/icons-material/FileCopyOutlined";
+import ArchiveOutlinedIcon from "@mui/icons-material/ArchiveOutlined";
+import { Box, Button, Menu, MenuItem, Typography } from "@mui/material";
 
 export default function TotalEarningCard() {
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   return (
     <Box
       sx={{
@@ -14,10 +29,6 @@ export default function TotalEarningCard() {
         position: "relative",
         overflow: "hidden",
         padding: "18px",
-        // display:'flex',
-        // flexDirection:'column',
-        // justifyContent: 'center',
-        // gap: 2,
 
         "&::before": {
           content: '""',
@@ -46,6 +57,30 @@ export default function TotalEarningCard() {
         },
       }}
     >
+      <Box
+        id="basic-button"
+        aria-controls={open ? "basic-menu" : undefined}
+        aria-haspopup="true"
+        aria-expanded={open ? "true" : undefined}
+        onClick={handleClick}
+        sx={{
+          position: "absolute",
+          width: "34px",
+          height: "34px",
+          borderRadius: "8px",
+          bgcolor: "#212946",
+          top: "20px",
+          right: "20px",
+          zIndex: 2,
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          color: "white",
+          cursor: "pointer",
+        }}
+      >
+        <MoreHorizOutlinedIcon />
+      </Box>
       <Box
         sx={{
           width: "45px",
@@ -101,6 +136,112 @@ export default function TotalEarningCard() {
       >
         total earning
       </Typography>
+
+      <Menu
+        id="basic-menu"
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: "bottom", // منو از کجای anchor باز بشه
+          horizontal: "right", // وسط anchor
+        }}
+        transformOrigin={{
+          vertical: "top", // نقطه شروع منو خودش
+          horizontal: "right", // وسط خودش
+        }}
+        slotProps={{
+          list: {
+            "aria-labelledby": "basic-button",
+          },
+        }}
+        PaperProps={{
+          sx: {
+            bgcolor: "#212946",
+            color: "#bdc8f0",
+            borderRadius: "10px",
+            mt: 1,
+            minWidth: 100,
+          },
+        }}
+      >
+        <MenuItem
+          onClick={handleClose}
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            transition: "0.3s",
+            "&:hover": {
+              bgcolor: " #323A55",
+            },
+          }}
+        >
+          <GetAppIcon sx={{ fontSize: "20px" }} />
+          <Typography
+            variant="body1"
+            sx={{ ml: "10px", fontSize: "14px", fontWeight: 400,textTransform:'capitalize' }}
+          >
+            import card
+          </Typography>
+        </MenuItem>
+        <MenuItem
+          onClick={handleClose}
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            transition: "0.3s",
+            "&:hover": {
+              bgcolor: " #323A55",
+            },
+          }}
+        >
+          <FileCopyOutlinedIcon sx={{ fontSize: "20px" }} />
+          <Typography
+            variant="body1"
+            sx={{ ml: "10px", fontSize: "14px", fontWeight: 400,textTransform:'capitalize' }}
+          >
+            copy data
+          </Typography>
+        </MenuItem>
+        <MenuItem
+          onClick={handleClose}
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            transition: "0.3s",
+            "&:hover": {
+              bgcolor: " #323A55",
+            },
+          }}
+        >
+          <FileUploadIcon sx={{ fontSize: "20px" }} />
+          <Typography
+            variant="body1"
+            sx={{ ml: "10px", fontSize: "14px", fontWeight: 400,textTransform:'capitalize' }}
+          >
+            export
+          </Typography>
+        </MenuItem>
+        <MenuItem
+          onClick={handleClose}
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            transition: "0.3s",
+            "&:hover": {
+              bgcolor: " #323A55",
+            },
+          }}
+        >
+          <ArchiveOutlinedIcon sx={{ fontSize: "20px" }} />
+          <Typography
+            variant="body1"
+            sx={{ ml: "10px", fontSize: "14px", fontWeight: 400,textTransform:'capitalize' }}
+          >
+            archive file
+          </Typography>
+        </MenuItem>
+      </Menu>
     </Box>
   );
 }
