@@ -6,13 +6,16 @@ import {
   List,
   ListItem,
   ListItemIcon,
+  Menu,
+  MenuItem,
   TextField,
+  Typography,
 } from "@mui/material";
 import Image from "next/image";
 import React, { useState } from "react";
 import SettingsIcon from "@mui/icons-material/Settings";
 import FullscreenIcon from "@mui/icons-material/Fullscreen";
-import FullscreenExitIcon from '@mui/icons-material/FullscreenExit'
+import FullscreenExitIcon from "@mui/icons-material/FullscreenExit";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import TranslateIcon from "@mui/icons-material/Translate";
 import StreamIcon from "@mui/icons-material/Stream";
@@ -20,17 +23,22 @@ import SearchIcon from "@mui/icons-material/Search";
 
 export default function Header() {
   const [query, setQuery] = useState("");
-  const [screen , setScreen] = useState(false)
+  const [screen, setScreen] = useState(false);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [SelectedLanguage, setSelectedLanguage] = useState("English");
+  const open = Boolean(anchorEl);
 
-  const fullScreen = ()=>{
-    if(!document.fullscreenElement){
-      document.documentElement.requestFullscreen()
-      setScreen(true)
-    }else{
-      document.exitFullscreen()
-      setScreen(false)
+  const fullScreen = () => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen();
+      setScreen(true);
+    } else {
+      document.exitFullscreen();
+      setScreen(false);
     }
-  }
+  };
+
+  const translate = () => {};
 
   return (
     <AppBar
@@ -121,6 +129,7 @@ export default function Header() {
             </ListItemIcon>
           </ListItem>
           <ListItem
+            onClick={(e) => setAnchorEl(e.currentTarget)}
             sx={{
               width: 34,
               height: 34,
@@ -167,6 +176,7 @@ export default function Header() {
             </ListItemIcon>
           </ListItem>
           <ListItem
+            onClick={fullScreen}
             sx={{
               width: 34,
               height: 34,
@@ -183,7 +193,7 @@ export default function Header() {
               },
             }}
           >
-            <ListItemIcon onClick={fullScreen}
+            <ListItemIcon
               sx={{ color: "#1e88e5", minWidth: 0, transition: ".3s" }}
             >
               {!screen ? <FullscreenIcon /> : <FullscreenExitIcon />}
@@ -217,6 +227,113 @@ export default function Header() {
             </ListItemIcon>
           </ListItem>
         </List>
+        <Menu
+          anchorEl={anchorEl}
+          open={open}
+          onClose={() => setAnchorEl(null)}
+          anchorOrigin={{
+            vertical: "bottom", // منو از کجای anchor باز بشه
+            horizontal: "center", // وسط anchor
+          }}
+          transformOrigin={{
+            vertical: "top", // نقطه شروع منو خودش
+            horizontal: "center", // وسط خودش
+          }}
+          PaperProps={{
+            sx: {
+              bgcolor: "#212946",
+              color: "#fff",
+              borderRadius: "10px",
+              mt: 2,
+              minWidth: 200,
+            },
+          }}
+        >
+          <MenuItem
+            sx={{
+              fontSize: 14,
+              bgcolor:
+                SelectedLanguage === "English" ? "#2E2E62" : "transparent",
+              color: "#bdc8f0",
+              paddingBlock: "14px",
+              paddingInline: "16px",
+              transition: ".3s",
+              "&:hover": {
+                bgcolor: "#2E2E62",
+              },
+            }}
+            onClick={() => {
+              setAnchorEl(null);
+              setSelectedLanguage("English");
+            }}
+          >
+            <Box sx={{ display: "flex", alignItems: "end", gap: 1 }}>
+              <Typography variant="body1">English</Typography>
+              <Typography
+                variant="caption"
+                sx={{ fontSize: 12, color: "#8492c4" }}
+              >
+                (UK)
+              </Typography>
+            </Box>
+          </MenuItem>
+          <MenuItem
+            sx={{
+              fontSize: 14,
+              color: "#bdc8f0",
+              bgcolor:
+                SelectedLanguage === "français" ? "#2E2E62" : "transparent",
+              paddingBlock: "14px",
+              paddingInline: "16px",
+              transition: ".3s",
+              "&:hover": {
+                bgcolor: "#2E2E62",
+              },
+            }}
+            onClick={() => {
+              setAnchorEl(null);
+              setSelectedLanguage("français");
+            }}
+          >
+            <Box sx={{ display: "flex", alignItems: "end", gap: 1 }}>
+              <Typography variant="body1">français</Typography>
+              <Typography
+                variant="caption"
+                sx={{ fontSize: 12, color: "#8492c4" }}
+              >
+                (french)
+              </Typography>
+            </Box>
+          </MenuItem>
+          <MenuItem
+            sx={{
+              fontSize: 14,
+              color: "#bdc8f0",
+              bgcolor:
+                SelectedLanguage === "Română" ? "#2E2E62" : "transparent",
+              paddingBlock: "14px",
+              paddingInline: "16px",
+              transition: ".3s",
+              "&:hover": {
+                bgcolor: "#2E2E62",
+              },
+            }}
+            onClick={() => {
+              setAnchorEl(null);
+              setSelectedLanguage("Română");
+            }}
+          >
+            <Box sx={{ display: "flex", alignItems: "end", gap: 1 }}>
+              <Typography variant="body1">Română</Typography>
+              <Typography
+                variant="caption"
+                sx={{ fontSize: 12, color: "#8492c4" }}
+              >
+                (romanian)
+              </Typography>
+            </Box>
+          </MenuItem>
+        </Menu>
       </Box>
     </AppBar>
   );
