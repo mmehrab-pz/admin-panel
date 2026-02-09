@@ -35,6 +35,7 @@ export default function RootLayout({ children }) {
                     height: "100%",
                     bgcolor: "#1A223F",
                     borderRadius: "8px 8px 0 0",
+                    padding:'20px'
                   }}
                 >
                   {children}

@@ -1,19 +1,28 @@
-import { Box } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import React from "react";
 import TotalEarningCard from "./components/TotalEarningCard";
+import TotalOrderCard from "./components/TotalOrderCard";
 
 
 export default function DashboardPage() {
   return (
-    <Box
+    <Grid container rowSpacing={3}
       sx={{
-        height: "500px",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
+    
+        display:'flex',
+        justifyContent: 'center'
       }}
     >
-      
-    </Box>
+      <Grid container columnSpacing={3} sx={{}}>
+        <TotalEarningCard />
+        <TotalOrderCard />
+        <TotalEarningCard />
+      </Grid>
+      <Grid container columnSpacing={3} sx={{}}>
+        <TotalEarningCard />
+        <TotalEarningCard />
+        <TotalEarningCard />
+      </Grid>
+    </Grid>
   );
 }
