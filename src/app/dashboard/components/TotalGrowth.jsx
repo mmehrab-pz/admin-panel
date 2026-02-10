@@ -156,11 +156,8 @@ export default function TotalGrowth() {
               color: "#7C4DFF",
             },
           ]}
-          height={300}
+          height={494}
           sx={{
-            borderRadius: 2,
-            p: 2,
-
             // رنگ نوشته‌های محور X و Y
             "& .MuiChartsAxis-tickLabel": {
               fill: "#fff",
@@ -174,12 +171,7 @@ export default function TotalGrowth() {
 
             // رنگ خط محور
             "& .MuiChartsAxis-line": {
-              stroke: "#90caf9",
-            },
-
-            // رنگ خطوط شبکه (grid)
-            "& .MuiChartsGrid-line": {
-              stroke: "rgba(144, 202, 249, 0.2)",
+              stroke: "#ffffff",
             },
           }}
         />
