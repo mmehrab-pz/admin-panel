@@ -5,6 +5,7 @@ import TotalOrderCard from "./components/TotalOrderCard";
 import TotalIncomeCard1 from "./components/TotalIncomeCard1";
 import TotalIncomeCard2 from "./components/TotalIncomeCard2";
 import Test from "./components/Test";
+import TotalGrowth from "./components/TotalGrowth";
 
 export default function DashboardPage() {
   return (
@@ -51,7 +52,7 @@ export default function DashboardPage() {
         <TotalIncomeCard2 />
       </Grid>
       <Grid size={8}>
-        <Test />
+        <TotalGrowth />
       </Grid>
       <Grid size={4}>
         <Test />
