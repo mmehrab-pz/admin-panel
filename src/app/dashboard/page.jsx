@@ -4,29 +4,57 @@ import TotalEarningCard from "./components/TotalEarningCard";
 import TotalOrderCard from "./components/TotalOrderCard";
 import TotalIncomeCard1 from "./components/TotalIncomeCard1";
 import TotalIncomeCard2 from "./components/TotalIncomeCard2";
+import Test from "./components/Test";
 
 export default function DashboardPage() {
   return (
+    // <Grid
+    //   container
+    //   rowSpacing={3}
+    //   sx={{
+    //     display: "flex",
+    //     justifyContent: "center",
+    //   }}
+    // >
+    //   <Grid container spacing={3}>
+    //     <Grid size={4} sx={{border:"1px solid white"}}>
+    //       <TotalEarningCard />
+    //     </Grid>
+    //     <Grid size={4} sx={{border:"1px solid white"}}>
+    //       <TotalOrderCard />
+    //     </Grid>
+    //     <Grid size={4} container spacing={3} sx={{flexDirection:'column',border:"1px solid white"}}>
+    //       <TotalIncomeCard1 />
+    //       <TotalIncomeCard2 />
+    //     </Grid>
+    //       <Grid size={8} sx={{border:"1px solid white"}}>
+    //         <Test />
+    //       </Grid>
+    //     <Grid size={4} sx={{border:"1px solid white"}}>
+    //       <Test />
+    //     </Grid>
+    //   </Grid>
+    // </Grid>
     <Grid
       container
-      rowSpacing={3}
-      sx={{
-        display: "flex",
-        justifyContent: "center",
-      }}
+      spacing={3}
+      sx={{ maxWidth: "1200px", marginInline: "auto" }}
     >
-      <Grid container columnSpacing={3} sx={{}}>
+      <Grid size={4}>
         <TotalEarningCard />
-        <TotalOrderCard />
-        <Grid container spacing={3} sx={{flexDirection:'column'}}>
-          <TotalIncomeCard1 />
-          <TotalIncomeCard2 />
-        </Grid>
       </Grid>
-      <Grid container columnSpacing={3} sx={{}}>
-        <TotalEarningCard />
-        <TotalEarningCard />
-        <TotalEarningCard />
+      <Grid size={4}>
+        <TotalOrderCard />
+      </Grid>
+      <Grid size={4} container spacing={3} sx={{flexDirection:'column'}}>
+        <TotalIncomeCard1 />
+        <TotalIncomeCard2 />
+      </Grid>
+      <Grid size={8}>
+        <Test />
+      </Grid>
+      <Grid size={4}>
+        <Test />
       </Grid>
     </Grid>
   );

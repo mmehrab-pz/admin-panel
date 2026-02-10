@@ -6,7 +6,7 @@ export default function TotalIncomeCard1() {
   return (
     <Box
       sx={{
-        width: "367px",
+        // width: "367px",
         height: "80px",
         borderRadius: "8px",
         bgcolor: "#1e88e5",

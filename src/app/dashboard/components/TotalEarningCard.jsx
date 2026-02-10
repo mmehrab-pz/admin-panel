@@ -23,7 +23,7 @@ export default function TotalEarningCard() {
     <Box
       sx={{
         height: "185px",
-        width: "367px",
+        // width: "367px",
         bgcolor: "#212946",
         borderRadius: "8px",
         position: "relative",
