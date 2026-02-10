@@ -7,6 +7,7 @@ import TotalIncomeCard2 from "./components/TotalIncomeCard2";
 import Test from "./components/Test";
 import TotalGrowth from "./components/TotalGrowth";
 import PopularStocks from "./components/PopularStocks";
+import Footer from "@/components/Footer";
 
 export default function DashboardPage() {
   return (
@@ -57,6 +58,9 @@ export default function DashboardPage() {
       </Grid>
       <Grid size={4}>
         <PopularStocks />
+      </Grid>
+      <Grid size={12}>
+        <Footer />
       </Grid>
     </Grid>
   );
