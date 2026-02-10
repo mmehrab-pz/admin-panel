@@ -3,6 +3,7 @@ import React from "react";
 import TotalEarningCard from "./components/TotalEarningCard";
 import TotalOrderCard from "./components/TotalOrderCard";
 import TotalIncomeCard1 from "./components/TotalIncomeCard1";
+import TotalIncomeCard2 from "./components/TotalIncomeCard2";
 
 export default function DashboardPage() {
   return (
@@ -19,7 +20,7 @@ export default function DashboardPage() {
         <TotalOrderCard />
         <Grid container spacing={3} sx={{flexDirection:'column'}}>
           <TotalIncomeCard1 />
-          <TotalIncomeCard1 />
+          <TotalIncomeCard2 />
         </Grid>
       </Grid>
       <Grid container columnSpacing={3} sx={{}}>
