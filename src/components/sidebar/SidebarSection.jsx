@@ -25,7 +25,6 @@ export default function SidebarSection({ section, collapsed }) {
         </Typography>
       )}
       {section.items.map((item, navIndex) => {
-        console.log(section.items);
         return (
           <SidebarItem
             key={navIndex}
