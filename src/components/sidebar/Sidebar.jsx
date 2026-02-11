@@ -1,10 +1,8 @@
 "use client";
 
 import { Box, Drawer, useTheme } from "@mui/material";
-import { usePathname } from "next/navigation";
 import navigation from "@/config/navigation";
 import SidebarHeader from "./SidebarHeader";
-import { useState } from "react";
 import SidebarSection from "./SidebarSection";
 
 export default function Sidebar({ collapsed, onToggle }) {
