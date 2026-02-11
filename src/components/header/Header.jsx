@@ -10,11 +10,12 @@ import Notifications from "./Notifications";
 import FullScreenButton from "./FullScreenButton";
 import ProfileMenu from "./ProfileMenu";
 
-export default function Header() {
+export default function Header({collapsed}) {
   return (
     <AppBar elevation={0}
       sx={{
-        width: "calc(100% - 260px)",
+        width: collapsed ? "calc(100% - 75px)" : "calc(100% - 260px)",
+        transition:'.4s',
         height: "85px",
         bgcolor: "#111936",
       }}
