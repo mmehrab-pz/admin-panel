@@ -131,50 +131,50 @@ export default function TotalGrowth() {
           justifyContent: "center",
         }}
       >
-        <BarChart
-          xAxis={[
-            {
-              data: [
-                "Jan",
-                "Feb",
-                "Mar",
-                "Apr",
-                "May",
-                "Jun",
-                "Jul",
-                "Aug",
-                "Sep",
-                "Oct",
-                "Nov",
-                "Dec",
-              ],
-            },
-          ]}
-          series={[
-            {
-              data: [110, 290, 150, 210, 70, 190, 350, 50, 250, 140, 130, 330],
-              color: "#7C4DFF",
-            },
-          ]}
-          height={494}
-          sx={{
-            // رنگ نوشته‌های محور X و Y
-            "& .MuiChartsAxis-tickLabel": {
-              fill: "#fff",
-              color: "white",
-            },
-
-            // رنگ عنوان محور
-            "& .MuiChartsAxis-label": {
-              fill: "#fff",
-            },
-
-            // رنگ خط محور
-            "& .MuiChartsAxis-line": {
-              stroke: "#ffffff",
-            },
-          }}
-        />
+      <BarChart
+        xAxis={[
+          {
+            data: [
+              "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+              "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+            ],
+            scaleType: "band",
+            tickLabelStyle: { fill: "#D1D1E0", fontSize: 12 },
+          },
+        ]}
+        series={[
+          {
+            data: [110, 290, 150, 210, 70, 190, 350, 50, 250, 140, 130, 330],
+            color: "url(#barGradient)",
+            borderRadius: 6,
+          },
+        ]}
+        height={494}
+        margin={{ top: 30, bottom: 40, left: 40, right: 10 }}
+        grid={{ horizontal: true }}
+        sx={{
+          "& .MuiChartsAxis-tickLabel": { fill: "#ccc" },
+          "& .MuiChartsAxis-line, & .MuiChartsGrid-line": {
+            stroke: "rgba(255,255,255,0.15)",
+          },
+          "& .MuiChartsLegend-root": {
+            color: "#fff",
+          },
+        }}
+        slotProps={{
+          legend: {
+            labelStyle: { fill: "#fff" },
+          },
+        }}
+      >
+        {/* تعریف گرادینت رنگی */}
+        <defs>
+          <linearGradient id="barGradient" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#7C4DFF" />
+            <stop offset="100%" stopColor="#512DA8" />
+          </linearGradient>
+        </defs>
+      </BarChart>
       </Box>
     </Box>
   );
