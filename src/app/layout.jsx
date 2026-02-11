@@ -3,6 +3,7 @@ import { ThemeProvider, CssBaseline, Box } from "@mui/material";
 import theme from "@/theme/theme";
 import { roboto } from "@/theme/font";
 import Header from "@/components/header/Header";
+import Mehrab from "@/components/Mehrab";
 
 export const metadata = {
   title: 'Berry | React Material Admin',
@@ -35,10 +36,12 @@ export default function RootLayout({ children }) {
                     height: "100%",
                     bgcolor: "#1A223F",
                     borderRadius: "8px 8px 0 0",
-                    padding:'20px'
+                    padding:'20px',
+                    position:'relative'
                   }}
                 >
                   {children}
+                  <Mehrab />
                 </Box>
               </Box>
             </Box>
