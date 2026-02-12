@@ -60,7 +60,7 @@ export default function KeyMetrics() {
                 </Typography>
                 <Typography
                   variant="caption"
-                  sx={{ fontSize: "12px", fontWeight: 400, color: "#8492c4" }}
+                  sx={{ fontSize: "12px", fontWeight: 400, color: "#8492c4",textTransform:'uppercase' }}
                 >
                   {item.caption}
                 </Typography>
