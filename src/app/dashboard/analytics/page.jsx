@@ -7,6 +7,7 @@ import DailyUser from "./components/DailyUser";
 import DailyView from "./components/DailyView";
 import Orders from "./components/Orders";
 import Revenue from "./components/Revenue";
+import LatestCustomers from "./components/LatestCustomers";
 
 export default function analytics() {
   return (
@@ -25,6 +26,7 @@ export default function analytics() {
             <Orders />
           </Grid>
         </Grid>
+        <LatestCustomers />
       </Grid>
       <Grid size={4} container spacing={3} sx={{ flexDirection: "column" }}>
         <KeyMetrics />
