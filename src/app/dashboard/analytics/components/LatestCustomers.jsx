@@ -49,7 +49,7 @@ export default function LatestCustomers() {
 );
 
   return (
-    <Box sx={{ borderRadius: "8px", bgcolor: "#212946", height: "300px" }}>
+    <Box sx={{ borderRadius: "8px", bgcolor: "#212946"}}>
       <Box sx={{ p: "24px", borderBottom: "1px solid #e3e8ef33" }}>
         <Typography
           variant="body1"
@@ -148,6 +148,9 @@ export default function LatestCustomers() {
                   key={index}
                   sx={{
                     border: 0,
+                    "&:hover":{
+                        bgcolor:'#323A55'
+                    },
                     "&:last-child td, &:last-child th": { border: 0 },
                   }}
                 >
