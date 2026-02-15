@@ -3,6 +3,7 @@ import React from 'react'
 import MarketShare from './components/MarketShare'
 import KeyMetrics from './components/KeyMetrics'
 import TotalRevenue from './components/TotalRevenue'
+import DailyUser from './components/DailyUser'
 
 export default function analytics() {
   return (
@@ -24,6 +25,7 @@ export default function analytics() {
       <Grid size={4} container spacing={3} sx={{flexDirection:'column'}}>
         <KeyMetrics />
         <TotalRevenue />
+        <DailyUser />
       </Grid>
     </Grid>
   )
