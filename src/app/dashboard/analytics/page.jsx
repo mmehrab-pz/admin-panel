@@ -1,34 +1,35 @@
-import { Grid } from '@mui/material'
-import React from 'react'
-import MarketShare from './components/MarketShare'
-import KeyMetrics from './components/KeyMetrics'
-import TotalRevenue from './components/TotalRevenue'
-import DailyUser from './components/DailyUser'
-import DailyView from './components/DailyView'
+import { Grid } from "@mui/material";
+import React from "react";
+import MarketShare from "./components/MarketShare";
+import KeyMetrics from "./components/KeyMetrics";
+import TotalRevenue from "./components/TotalRevenue";
+import DailyUser from "./components/DailyUser";
+import DailyView from "./components/DailyView";
+import Orders from "./components/Orders";
 
 export default function analytics() {
   return (
-    // <Grid container spacing={3} sx={{ maxWidth: "1200px", marginInline: "auto" }}>
-    //   <Grid size={8}>
-    //       <MarketShare />
-    //   </Grid>
-    //   <Grid size={4}>
-    //       <KeyMetrics />
-    //   </Grid>
-    //   <Grid size={4}>
-    //     <TotalRevenue />
-    //   </Grid>
-    // </Grid>
-    <Grid container spacing={3} sx={{ maxWidth: "1200px", marginInline: "auto" }}>
-      <Grid size={8}>
+    <Grid
+      container
+      spacing={3}
+      sx={{ maxWidth: "1200px", marginInline: "auto" }}
+    >
+      <Grid size={8} container spacing={3} sx={{ flexDirection: "column" }}>
         <MarketShare />
+        <Grid container>
+          <Grid size={6}>
+          </Grid>
+          <Grid size={6}>
+            <Orders />
+          </Grid>
+        </Grid>
       </Grid>
-      <Grid size={4} container spacing={3} sx={{flexDirection:'column'}}>
+      <Grid size={4} container spacing={3} sx={{ flexDirection: "column" }}>
         <KeyMetrics />
         <TotalRevenue />
         <DailyUser />
         <DailyView />
       </Grid>
     </Grid>
-  )
+  );
 }
