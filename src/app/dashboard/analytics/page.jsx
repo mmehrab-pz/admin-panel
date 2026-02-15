@@ -4,6 +4,7 @@ import MarketShare from './components/MarketShare'
 import KeyMetrics from './components/KeyMetrics'
 import TotalRevenue from './components/TotalRevenue'
 import DailyUser from './components/DailyUser'
+import DailyView from './components/DailyView'
 
 export default function analytics() {
   return (
@@ -26,6 +27,7 @@ export default function analytics() {
         <KeyMetrics />
         <TotalRevenue />
         <DailyUser />
+        <DailyView />
       </Grid>
     </Grid>
   )
