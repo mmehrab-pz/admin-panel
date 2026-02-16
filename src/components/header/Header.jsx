@@ -14,7 +14,10 @@ export default function Header({collapsed}) {
   return (
     <AppBar elevation={0}
       sx={{
-        width: collapsed ? "calc(100% - 75px)" : "calc(100% - 260px)",
+        width:{
+          xs:'100%',
+          md: collapsed ? "calc(100% - 75px)" : "calc(100% - 260px)"
+        },
         transition:'.4s',
         height: "85px",
         bgcolor: "#111936",
@@ -26,7 +29,13 @@ export default function Header({collapsed}) {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          paddingRight: "24px",
+          paddingInline:{
+            xs:'12px',
+            md:'0px'
+          },
+          paddingRight: {
+            md:'24px'
+          },
         }}
       >
         <SearchInput />

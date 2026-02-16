@@ -12,6 +12,10 @@ export default function Sidebar({ collapsed, onToggle }) {
     <Drawer
       variant="permanent"
       sx={{
+        display:{
+          xs:'none',
+          md:'block'
+        },
         width: collapsed ? '75px' : '260px',
         transition:'.4s',
         flexShrink: 0,

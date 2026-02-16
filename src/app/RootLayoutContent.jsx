@@ -27,7 +27,13 @@ export default function RootLayout({ children }) {
                   mt: "85px",
                   bgcolor: "#111936",
                   height: "calc(100% - 85px)",
-                  pr: "24px",
+                  p: {
+                    xs:'12px',
+                    md:'0px'
+                  },
+                  pr:{
+                    md:'24px'
+                  }
                 }}
               >
                 <Box

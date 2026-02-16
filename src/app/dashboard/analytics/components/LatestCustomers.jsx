@@ -155,7 +155,7 @@ export default function LatestCustomers() {
                   }}
                 >
                   <TableCell component="th" scope="row">
-                    <Image src={item.flag} width={30} height={30}/>
+                    <Image src={item.flag} alt={item.country} width={30} height={30}/>
                   </TableCell>
                   <TableCell
                     sx={{ fontSize: "14px", fontWeight: 400, color: "#bdc8f0" }}
