@@ -2,6 +2,7 @@ import { Grid } from "@mui/material";
 import React from "react";
 import QuickAdd from "./components/QuickAdd";
 import SparkLineCrad from "./components/SparkLineCrad";
+import ClientInsights from "./components/ClientInsights";
 
 export default function invoices() {
   return (
@@ -24,6 +25,9 @@ export default function invoices() {
       </Grid>
       <Grid size={{xs:12,sm:6,md:4,lg:3}}>
         <SparkLineCrad title={'Overdue'} num={"55,865"} color={'#FFAB91'}/>
+      </Grid>
+      <Grid size={4}>
+        <ClientInsights />
       </Grid>
     </Grid>
   );
